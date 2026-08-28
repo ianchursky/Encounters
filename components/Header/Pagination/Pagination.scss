@@ -1,0 +1,67 @@
+@import '../../../config';
+
+.#{$prefix}-pagination {
+  margin-right: 20px;
+  text-align: right;
+  display: inline-block;
+  ul.pagination.justify-content-start {
+    background: transparent;
+  }
+
+  .pagination-container {
+    text-align: right;
+    display: inline-block;
+    margin-right: 10px;
+    .pagination {
+      margin-bottom: 0;
+      background: transparent;
+      // << < - 1 - 2 - 3 - > >>
+      .page-item {
+        cursor: pointer;
+        .page-link {
+          font-size: 12px;
+          padding: 1px 6px;
+          color: var(--cui-body-color);
+        }
+
+        &.active > .page-link {
+          color: var(--button-primary-text-color);
+          background-color: var(--button-primary-background);
+        }
+      }
+    }
+  }
+  .#{$prefix}-page-count {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .#{$prefix}-page-limit {
+    font-size: 13px;
+    text-align: right;
+    display: inline-block;
+
+    span {
+      cursor: pointer;
+      color: var(--gray_600);
+      margin: 0 5px;
+
+      &:hover {
+        color: var(--white);
+      }
+
+      &.show-text {
+        color: var(--white);
+        cursor: default;
+      }
+
+      &.active {
+        color: var(--button-primary-background);
+        font-weight: bold;
+      }
+    }
+
+  }
+
+}

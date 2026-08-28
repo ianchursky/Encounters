@@ -1,0 +1,43 @@
+@import '../../../../config.scss';
+
+.#{$prefix}-bulk-actions {
+  position: relative;
+  display: inline-block;
+  .item-count {
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 10px;
+  }
+
+  button {
+    font-size: 11px;
+    margin-right: 10px;
+    padding: 3px 12px;
+    color: var(--black);
+    background-color: var(--primary_400);
+
+    &:hover, &:active, &:focus {
+      font-size: 11px;
+      color: var(--black);
+      background-color: var(--primary_200);
+    }
+
+    &.recall-submission {
+      &.hide {
+        display: none;
+      }
+    }
+
+    &.void {
+      &.hide {
+        display: none;
+      }
+    }
+
+    &.download-notes {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}

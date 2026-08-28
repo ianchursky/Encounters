@@ -1,0 +1,229 @@
+@import '../../../config.scss';
+
+// This element is where the filters panel is triggered from. The filters panel that appears is outside of this container
+.#{$prefix}-filters-panel {
+
+  display: inline-block;
+
+  .#{$prefix}-filters-icon {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: right;
+    color: var(--gray_600);
+    &:hover {
+      color: var(--white);
+    }
+  }
+}
+
+// This is the actual filters panel, it is rendered outside of any button or link that triggers it, normally at the bottom of the page in HTML.
+// NOTE: "offcanvas" is what the component is referred to in CoreUI React see: https://coreui.io/react/docs/components/offcanvas/
+.#{$prefix}-filters-panel-offcanvas {
+
+  background-color: var(--cui-body-bg);
+
+  &.offcanvas {
+    color: var(--white);
+    width: 40%;
+
+    ::placeholder {
+      color: #999999;
+    }
+
+    .offcanvas-header {
+      position: relative;
+      border-left: 1px solid #333;
+      .title {
+        width: 50%;
+        h5 {
+          font-size: 30px;
+          font-family: var(--font-gilroy);
+        }
+      }
+
+      /** Close arrow */
+      .arrow {
+        background-color: var(--button-primary-background);
+        color: var(--button-primary-text-color);
+        border: 1px solid var(--gray_700);
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        padding: 7px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      /** Cancel & Apply Buttons */
+      .filters-panel-buttons {
+        text-align: right;
+        width: 50%;
+        button {
+          font-family: var(--font-gilroy);
+          margin-right: 20px;
+
+          &.btn-primary {
+            background: var(--button-primary-background);
+          }
+
+        }
+      }
+    }
+
+    .offcanvas-body {
+      border-left: 1px solid #333;
+    }
+
+    /** Filters panel item header (i.e. title area)  */
+    .filters-panel-filter-item-header {
+      margin-bottom: 25px;
+      opacity: 0.8; // a little bit lighter
+
+      > div {
+        display: inline-block;
+
+        &.filters-panel-filter-item-title {
+          font-family: var(--font-gilroy);
+          margin-right: 20px;
+          font-size: 18px;
+        }
+      }
+    }
+
+    /** Filters panel item body (i.e. content... checkboxes, date picker, etc.)  */
+    .filters-panel-filter-item-body {
+      margin-bottom: 35px; // for spacing between filter categories
+    }
+
+    /** Checkbox group filter */
+    .filters-panel-checkbox-group {
+
+      .filters-panel-checkbox-group-search {
+
+        input {
+          border: 1px solid #999999;
+          color: var(--cui-text-primary);
+          background-color: transparent;
+          font-size: 10px;
+          background-image: url('../../../../../../assets/icons/Search-Dark.svg'); // TODO: find a better way to do this if possible
+          background-repeat: no-repeat;
+          background-position-x: 10px;
+          background-position-y: center;
+          padding-left: 35px;
+          min-width: 200px;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+
+      .filters-panel-checkbox-group-checkbox {
+        display: inline-block;
+        margin-right: 10px;
+
+        .form-check {
+
+          label {
+            color: var(--white);
+            opacity: 0.7;
+            font-size: 12px;
+          }
+
+          input.form-check-input
+          {
+            background-color: transparent;
+            border-color: rgb(87, 89, 93);
+            box-shadow: none;
+            &:checked {
+              color: var(--black);
+              background-image: url('../../../../../../assets/icons/tick.svg');
+              background-color: var(--primary_400);
+            }
+          }
+        }
+      }
+
+      .clear {
+        font-size: 10px;
+        color: #999999;
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--white);
+        }
+
+      }
+
+      .more {
+        margin-top: 10px;
+        text-align: right;
+        cursor: pointer;
+        font-size: 12px;
+        color: var(--primary_400);
+        font-family: var(--font-gilroy);
+      }
+
+      // NOTE: This is a special case for these 2 checkbox groups needing to have their items placed on just one line.
+      &.encounter-statuses-filters-panel-checkbox-group > div,
+      &.note-statuses-filters-panel-checkbox-group > div {
+        display: inline-block;
+      }
+
+      &.encounter-statuses-filters-panel-checkbox-group .clear,
+      &.note-statuses-filters-panel-checkbox-group .clear {
+        margin-left: 0;
+        margin-right: 10px;
+        display: none;
+      }
+
+    }
+
+    /** Date range filter */
+    .filters-panel-date-range-picker {
+
+      .date-picker {
+        background: transparent;
+        border: 1px solid #666;
+        border-radius: 10px;
+        width: 66%;
+      }
+
+      .calendar-cell.today .calendar-cell-inner {
+        color: rgba(155, 232, 226, 1); // #9be8e2
+      }
+      .calendar-cell.selected .calendar-cell-inner {
+        background-color: rgba(155, 232, 226, 1);
+        color: var(--button-primary-text-color);
+      }
+
+      .calendar-cell.range:not(.selected) .calendar-cell-inner {
+        background-color: rgba(155, 232, 226, 0.5);
+        color: var(--button-primary-text-color);
+      }
+
+      .calendar-cell.range:not(.selected):hover .calendar-cell-inner {
+        color: var(--button-primary-text-color);
+      }
+
+      .calendar-cell.range-hover .calendar-cell-inner::before,
+      .calendar-cell.range-hover.selected .calendar-cell-inner::before,
+      .calendar-cell.range:not(.selected):hover .calendar-cell-inner::before {
+        border-color: var(--cui-gray-300);
+      }
+
+      .calendar-cell.range:not(.selected):hover .calendar-cell-inner::after {
+        background-color: rgba(155, 232, 226, 0.25);
+      }
+
+      input.form-control {
+        font-size: 12px;
+      }
+
+      .picker.show .input-group {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+}

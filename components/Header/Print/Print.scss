@@ -1,0 +1,62 @@
+@import '../../../config';
+
+.#{$prefix}-print {
+  display: inline-block;
+  color: var(--gray_600);
+
+  &:hover {
+    color: var(--white);
+  }
+}
+
+@media print {
+
+  .#{$prefix}-header {
+    padding: 5px 0;
+    margin-bottom: 10px;
+  }
+  .#{$prefix}-header .title {
+   color: #000;
+  }
+  .#{$prefix}-header .logo {
+    color: #000;
+    text-align: right;
+    filter: grayscale(1) brightness(50%);
+  }
+
+  .#{$prefix}-header .controls,
+  .#{$prefix}-scope-toggle,
+  .#{$prefix}-status-checkboxes,
+  .#{$prefix}-encounters-page-header,
+  .#{$prefix}-content .controls,
+  .#{$prefix}-content .bulk-actions,
+  .census-page-right-text,
+  .#{$prefix}-table .row,
+  .#{$prefix}-table table > thead > tr > th .sort,
+  .#{$prefix}-table table > thead > tr > th#context,
+  .#{$prefix}-table table > thead > tr > th:nth-child(1),
+  .#{$prefix}-table table > thead > tr > th:nth-child(2),
+  .#{$prefix}-table table > tbody > tr > td:nth-child(1),
+  .#{$prefix}-table table > tbody > tr > td.context-column-item,
+  .#{$prefix}-table .status-column,
+  .#{$prefix}-table .status-column-item,
+  .#{$prefix}-table .pagination {
+    display: none !important;
+  }
+
+  .#{$prefix}-table table th,
+  .#{$prefix}-table table > tbody > tr:nth-of-type(odd) > td,
+  .#{$prefix}-table table > tbody > tr:nth-of-type(even) > td {
+    border-bottom: 1px solid #999;
+    color: #000;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .dob,
+  .primary-diagnosis-column-item .code,
+  .primary-diagnosis-column-item .description {
+    color: #000 !important;
+  }
+
+}

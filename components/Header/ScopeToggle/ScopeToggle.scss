@@ -1,0 +1,29 @@
+@import '../../../config.scss';
+
+.#{$prefix}-scope-toggle {
+
+  display: inline-block;
+  margin-right: 10px;
+  .nav-pills {
+
+    .nav-link {
+      color: var(--white);
+    }
+
+    .nav-link.active {
+      color: var(--black);
+      background-color: var(--primary_400);
+    }
+  }
+
+  select {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 3px;
+    margin-left: 15px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+}

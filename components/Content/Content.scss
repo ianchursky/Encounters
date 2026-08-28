@@ -1,0 +1,12 @@
+@import '../../config.scss';
+
+/** Temporarily putting this here to remove scrollbar caused by parent container. */
+.encounters {
+  padding-right: 20px;
+}
+
+.#{$prefix}-content {
+  position: relative;
+  clear: both;
+  background-color: rgb(24, 25, 36);
+}

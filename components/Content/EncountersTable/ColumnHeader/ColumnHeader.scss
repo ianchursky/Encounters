@@ -1,0 +1,34 @@
+@import '../../../../config.scss';
+
+.#{$prefix}-column-header {
+  position: relative;
+
+  .title {
+    display: table-cell;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .sort {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 1);
+
+    .swap, .up, .down {
+      display: inline-block;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+
+  }
+
+}
+
+.#{$prefix}-table-data {
+  th {
+    // Hiding the default sort icon
+    .float-end.me-1 {
+      display: none !important;
+    }
+  }
+}

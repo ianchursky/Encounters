@@ -1,0 +1,75 @@
+@import '../../config.scss';
+
+.#{$prefix}-header {
+
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding: 18px 18px 18px 0;
+  font-family: var(--font-gilroy);
+  display: table;
+  z-index: 2;
+  background-color: rgb(24, 25, 36);
+  position: sticky;
+  top: 0;
+
+  .#{$prefix}-top-layer {
+    display: block;
+    border-bottom: 1px solid #666;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    .title {
+      display: table-cell;
+      vertical-align: middle;
+      width: 25%;
+      text-align: left;
+      font-size: 24px;
+      padding-left: 15px;
+    }
+
+    .logo {
+      display: table-cell;
+      width: 50%;
+      vertical-align: middle;
+      font-size: 20px;
+    }
+
+    .toggle {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+      width: 25%;
+    }
+
+    .settings {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+      width: 25%;
+    }
+  }
+  .#{$prefix}-second-layer {
+    .controls {
+      display: block;
+      clear: both;
+
+      .search {
+        width: 50%;
+        display: inline-block;
+      }
+
+      .pagination-and-icons {
+        width: 50%;
+        float: right;
+        text-align: right;
+        display: inline-block;
+
+        .icon {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+}

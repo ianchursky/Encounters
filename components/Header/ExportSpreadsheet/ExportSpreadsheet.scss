@@ -1,0 +1,39 @@
+@import '../../../config';
+
+.#{$prefix}-export-spreadsheet {
+
+  display: inline-block;
+  position: relative;
+
+  .#{$prefix}-export-spreadsheet-icon {
+    display: inline-block;
+    padding-right: 10px;
+    text-align: right;
+    color: var(--gray_600);
+    &:hover {
+      color: var(--white);
+    }
+    &.hide {
+      visibility: hidden;
+    }
+
+  }
+
+  .spinner {
+    display: none;
+
+    &.show {
+      display: inline-block;
+    }
+
+    .spinner-border {
+      font-size: 12px;
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+  }
+
+}

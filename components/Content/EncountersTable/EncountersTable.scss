@@ -1,0 +1,228 @@
+@import '../../../config.scss';
+
+.#{$prefix}-table {
+
+  position: relative;
+  background-color: rgb(24, 25, 36);
+  font-size: 12px;
+  clear: both;
+  .sort {
+    color: #fff;
+  }
+
+  thead {
+    background-color: rgb(24, 25, 36);
+    position: sticky;
+    top: 146px;
+    z-index: 1;
+  }
+
+  .table-responsive {
+    overflow-x: visible;
+    margin-top: 10px;
+  }
+
+  /** Bulk Actions (container) */
+  .bulk-actions {
+
+    display: none;
+
+    &.show {
+      display: block;
+      height: 80%;
+      overflow-y: scroll;
+    }
+  }
+
+  /** Search Filter */
+  > div:nth-child(2) {
+    float: right;
+    label {
+      display: none;
+    }
+
+    input[type='text'] {
+      background-image: url('../../../../../../assets/icons/Search-Dark.svg'); // TODO: find a better way to do this if possible
+      background-repeat: no-repeat;
+      background-position-x: 10px;
+      background-position-y: center;
+      padding-left: 35px;
+      font-size: 10px;
+      opacity: 0.5;
+      width: 200px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    // annoyingly specific targeting of auto generated classes to ensure we do not clobber anything else
+    .my-2.mx-0 {
+      display: inline-block;
+      position: absolute;
+      top: -30px;
+      right: 0;
+      .col-sm-auto {
+        width: 100%;
+      }
+    }
+
+  }
+
+  /** Selected Item(s)/Checkbox Column */
+  .form-check-input[type='checkbox'] {
+    background-color: var(--checkbox-bg);
+    box-shadow: none;
+    border-color: var(--checkbox-border-color);
+  }
+
+  .form-check-input:checked[type='checkbox'] {
+    background-color: var(--checkbox-active);
+    box-shadow: none;
+    border-color: var(--checkbox-border-color-active);
+    background-image: url('../../../../../../assets/icons/tick.svg'); // TODO: find a better way to do this if possible
+  }
+
+  /** Patient Column */
+  .patient-column-item {
+
+    a{
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .name { }
+    .dob {
+      font-size: 12px;
+      color: var(--census-header-filter-label-text-color);
+    }
+  }
+
+  /** Status Column */
+  .status-column-item {
+    position: relative;
+    text-align: center;
+    > div {
+      position: relative;
+      .status {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 0.5px solid;
+        margin-right: 5px;
+        &.green {
+          background: #008000;
+        }
+
+        &.orange {
+          background: #ffA500;
+        }
+
+        &.red {
+          background: #ff0000;
+        }
+        &.white {
+          background: #ffffff;
+        }
+        &.empty {
+          background: transparent;
+        }
+      }
+
+      .notes {
+        display: inline-block;
+        position: absolute;
+        top: -2px;
+        right: 2px;
+        margin: 0;
+
+        &.draft {
+          svg {
+            color: rgb(213, 164, 57);
+          }
+        }
+
+        &.no-note {
+          margin: 0;
+
+          svg {
+            color: var(--checkbox-border-color);
+          }
+        }
+      }
+    }
+
+  }
+
+  /** Primary Diagnosis Column */
+  .primary-diagnosis-column-item {
+    width: 25%;
+    .code {
+      font-size: 14px;
+      color: var(--button-primary-background);
+      display: inline-block;
+      &.missing { // added if diagnosis code is missing
+        color: #e05050;
+      }
+    }
+    .description {
+      color: var(--census-header-filter-label-text-color)
+    }
+  }
+
+  /** Context Column */
+  .context-column-item {
+
+    .btn-group {
+      border-radius: 0;
+    }
+
+    button.dropdown-toggle {
+      background: transparent;
+      color: #ffffff;
+      box-shadow: none !important;
+      padding: 0;
+      margin-top: -10px;
+      display: inline-block;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+  }
+
+  > div:last-child {
+
+    /** Pagination */
+    .pagination {
+      display: none; // hide bottom pagination
+      background: transparent;
+      // << < - 1 - 2 - 3 - > >>
+      .page-item {
+
+        cursor: pointer;
+
+        .page-link {
+          font-size: 12px;
+          color: var(--cui-body-color);
+        }
+
+        &.active > .page-link {
+          color: var(--button-primary-text-color);
+          background-color: var(--button-primary-background);
+        }
+      }
+    }
+
+    /** Items per Page */
+    .form-label, .form-select, .form-control {
+      display: none; // hide the items per page filter
+      font-size: 12px;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+}
