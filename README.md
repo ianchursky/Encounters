@@ -1,4 +1,5 @@
 # Encounters Page
+React, Redux, CoreUI React, TypeScript, Ionic, Angular.js, Express (Node.js), MongoDB, AWS
 
 This is the README for the encounters page. Feel free to update with any notes, links, questions, etc.
 
